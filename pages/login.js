@@ -51,7 +51,10 @@ const Login = () => {
 
           const loggedInResponse = await response.json()
           if (loggedInResponse.done) {
-            setRedirectTohome(loggedInResponse.done)
+            console.log(loggedInResponse)
+            setTimeout(() => {
+              setRedirectTohome(loggedInResponse.done)
+            }, 2000)
           } else {
             setIsLoading(false)
             setUserMsg("Something went wrong logging in")
