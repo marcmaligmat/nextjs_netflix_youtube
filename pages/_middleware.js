@@ -5,11 +5,11 @@ export async function middleware(req) {
 
   const { pathname } = req.nextUrl.clone()
 
-  if (token && pathname === "/login") {
-    const url = req.nextUrl.clone()
-    url.pathname = "/"
-    return NextResponse.redirect(url)
-  }
+  // if (token && pathname === "/login") {
+  //   const url = req.nextUrl.clone()
+  //   url.pathname = "/"
+  //   return NextResponse.redirect(url)
+  // }
 
   if (pathname.includes(`/api/login`) || pathname.includes("/static")) {
     return NextResponse.next()
