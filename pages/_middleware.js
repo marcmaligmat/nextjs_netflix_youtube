@@ -11,11 +11,7 @@ export async function middleware(req) {
     return NextResponse.redirect(url)
   }
 
-  if (
-    token ||
-    pathname.includes(`/api/login`) ||
-    pathname.includes("/static")
-  ) {
+  if (pathname.includes(`/api/login`) || pathname.includes("/static")) {
     return NextResponse.next()
   }
 
