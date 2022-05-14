@@ -54,7 +54,7 @@ const Video = ({ video }) => {
       const response = await fetch(`/api/stats?videoId=${videoId}`, {
         method: "GET",
       })
-      // console.log(await response.json())
+
       const videoData = await response.json()
       if (videoData.length > 0) {
         const favourited = videoData[0].favourited
@@ -88,7 +88,6 @@ const Video = ({ video }) => {
 
     const favourited = val ? 1 : 0
     const response = await runRatingService(favourited)
-    console.log("Data", await response.json())
   }
 
   const handleToggleDislike = async () => {
@@ -97,7 +96,6 @@ const Video = ({ video }) => {
     const val = !toggleDislike
     const favourited = val ? 0 : 1
     const response = await runRatingService(favourited)
-    console.log("Data", await response.json())
   }
 
   return (
