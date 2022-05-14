@@ -117,19 +117,21 @@ const Video = ({ video }) => {
           src={`https://www.youtube.com/embed/${videoId}?origin=http://example.com&controls=0&rel=0`}
           frameBorder="0"
         ></iframe>
-        <div className={styles.likeDislikeBtnWrapper}>
-          <div className={styles.likeBtnWrapper}>
-            <button onClick={handleToggleLike}>
+        <div className={styles.container}>
+          <div className={styles.likeDislikeBtnWrapper}>
+            <div className={styles.likeBtnWrapper}>
+              <button onClick={handleToggleLike}>
+                <div className={styles.btnWrapper}>
+                  <Like selected={toggleLike} />
+                </div>
+              </button>
+            </div>
+            <button onClick={handleToggleDislike}>
               <div className={styles.btnWrapper}>
-                <Like selected={toggleLike} />
+                <DisLike selected={toggleDislike} />
               </div>
             </button>
           </div>
-          <button onClick={handleToggleDislike}>
-            <div className={styles.btnWrapper}>
-              <DisLike selected={toggleDislike} />
-            </div>
-          </button>
         </div>
         <div className={styles.modalBody}>
           <div className={styles.modalBodyContent}>

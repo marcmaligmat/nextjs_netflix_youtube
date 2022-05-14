@@ -57,6 +57,7 @@ export default function Home({
 
       <div className={styles.sectionWrapper}>
         <SectionCards title="Disney" videos={disneyVideos} size="large" />
+
         <SectionCards
           title="Watch It again"
           videos={watchItAgainVideos}

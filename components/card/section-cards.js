@@ -4,6 +4,9 @@ import Link from "next/link"
 import clsx from "classnames"
 
 const SectionCards = (props) => {
+  if (props?.videos?.length === 0) {
+    return
+  }
   const { title, videos = [], size, shouldWrap = false, shouldScale } = props
 
   return (
