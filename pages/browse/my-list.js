@@ -1,7 +1,7 @@
 import Head from "next/head"
 import NavBar from "../../components/navbar/navbar"
 import SectionCards from "../../components/card/section-cards"
-import styles from "../../styles/MyList.module.css"
+import styles from "../../styles/myList.module.css"
 
 import redirectUser from "../../utils/redirectUser"
 import { getMyList } from "../../lib/videos"
