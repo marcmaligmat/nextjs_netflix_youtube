@@ -111,15 +111,19 @@
   }
 }
 
+.container {
+  position: relative;
+}
 /** LikeDislike */
 .hide {
   opacity: 0;
 }
 .likeDislikeBtnWrapper {
   display: flex;
+  margin-top: -90px;
   margin-bottom: 0.75rem /* 12px */;
   position: absolute;
-  top: 35%;
+  top: -35%;
   padding-left: 1rem /* 48px */;
 }
 
