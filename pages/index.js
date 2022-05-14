@@ -15,6 +15,16 @@ import redirectUser from "../utils/redirectUser"
 export async function getServerSideProps(context) {
   const { userId, token } = await redirectUser(context)
 
+  if (!token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/login",
+      },
+      props: {},
+    }
+  }
+
   const watchItAgainVideos = await getWatchItAgainVideos(userId, token)
   const disneyVideos = await getVideos("disney trailer")
   const productivityVideos = await getVideos("Productivity")
@@ -31,13 +41,15 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default function Home({
+const Home = ({
   disneyVideos,
   productivityVideos,
   travelVideos,
   popularVideos,
   watchItAgainVideos,
-}) {
+}) => {
+  // console.log(props)
+
   return (
     <div className={styles.container}>
       <Head>
@@ -79,3 +91,5 @@ export default function Home({
     </div>
   )
 }
+
+export default Home

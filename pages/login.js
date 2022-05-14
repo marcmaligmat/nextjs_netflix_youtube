@@ -7,18 +7,34 @@ import styles from "../styles/login.module.css"
 import { useEffect, useState } from "react"
 import { magic } from "../lib/magic-client"
 
+import redirectUser from "../utils/redirectUser"
+
+export async function getServerSideProps(context) {
+  const { token } = await redirectUser(context)
+
+  if (token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/",
+      },
+      props: {},
+    }
+  }
+  return { props: {} }
+}
 const Login = () => {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [userMsg, setUserMsg] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [redirectToHome, setRedirectTohome] = useState(false)
+  // const [redirectToHome, setRedirectTohome] = useState(false)
 
-  useEffect(() => {
-    if (redirectToHome) {
-      router.push("/")
-    }
-  }, [router, redirectToHome])
+  // useEffect(() => {
+  //   if (redirectToHome) {
+  //     router.push("/")
+  //   }
+  // }, [router, redirectToHome])
 
   const handleKeyDownEnter = (e) => {
     if (e.key === "Enter") {
@@ -51,10 +67,7 @@ const Login = () => {
 
           const loggedInResponse = await response.json()
           if (loggedInResponse.done) {
-            console.log(loggedInResponse)
-            setTimeout(() => {
-              setRedirectTohome(loggedInResponse.done)
-            }, 2000)
+            router.push("/")
           } else {
             setIsLoading(false)
             setUserMsg("Something went wrong logging in")
