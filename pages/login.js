@@ -6,42 +6,12 @@ import styles from "../styles/login.module.css"
 
 import { useEffect, useState } from "react"
 import { magic } from "../lib/magic-client"
-import redirectUser from "../utils/redirectUser"
-
-// export async function getServerSideProps(context) {
-//   const { userId, token } = await redirectUser(context)
-
-//   if (userId && token) {
-//     return {
-//       redirect: {
-//         permanent: false,
-//         destination: "/",
-//       },
-//       props: {},
-//     }
-//   }
-
-//   return { props: {} }
-// }
 
 const Login = () => {
   const router = useRouter()
   const [email, setEmail] = useState("")
   const [userMsg, setUserMsg] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-
-  // useEffect(() => {
-  //   const handleComplete = () => {
-  //     setIsLoading(false)
-  //   }
-  //   router.events.on("routeChangeComplete", handleComplete)
-  //   router.events.on("routeChangeError", handleComplete)
-
-  //   return () => {
-  //     router.events.off("routeChangeComplete", handleComplete)
-  //     router.events.off("routeChangeError", handleComplete)
-  //   }
-  // })
 
   const handleKeyDownEnter = (e) => {
     if (e.key === "Enter") {

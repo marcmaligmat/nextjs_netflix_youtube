@@ -16,7 +16,7 @@ export default async function logout(req, res) {
       console.log("User's session with Magic already expired")
       console.error("Error occurred while logging out magic user", error)
     }
-    //redirects user to login page
+
     res.writeHead(302, { Location: "/login" })
     res.end()
   } catch (error) {

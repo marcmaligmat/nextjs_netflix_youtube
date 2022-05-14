@@ -87,7 +87,7 @@ const Video = ({ video }) => {
     setToggleDislike(toggleLike)
 
     const favourited = val ? 1 : 0
-    const response = await runRatingService(favourited)
+    await runRatingService(favourited)
   }
 
   const handleToggleDislike = async () => {
@@ -95,7 +95,7 @@ const Video = ({ video }) => {
     setToggleLike(toggleDislike)
     const val = !toggleDislike
     const favourited = val ? 0 : 1
-    const response = await runRatingService(favourited)
+    await runRatingService(favourited)
   }
 
   return (
