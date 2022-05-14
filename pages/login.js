@@ -43,15 +43,15 @@ const Login = () => {
           })
 
           const loggedInResponse = await response.json()
-          console.log({ loggedInResponse })
-          if (loggedInResponse.done) {
-            router.push("/")
-          } else {
-            setIsLoading(false)
-            setUserMsg("Something went wrong logging in")
-          }
+          // console.log({ loggedInResponse })
+          // if (loggedInResponse.done) {
+          //   router.push("/")
+          // } else {
+          //   setIsLoading(false)
+          //   setUserMsg("Something went wrong logging in")
+          // }
 
-          router.push("/")
+          // router.push("/")
         }
       } catch (error) {
         // Handle errors if required!
