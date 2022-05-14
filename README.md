@@ -1,1 +1,1 @@
-Deploy link in [Vercel](https://nextjs.org/docs/deployment) for more details.
+Deploy link in [Vercel](https://nextjs-netflix-youtube.vercel.app/) for more details.
