@@ -43,6 +43,7 @@ const Login = () => {
           })
 
           const loggedInResponse = await response.json()
+          router.push("/")
           // console.log({ loggedInResponse })
           // if (loggedInResponse.done) {
           //   router.push("/")
