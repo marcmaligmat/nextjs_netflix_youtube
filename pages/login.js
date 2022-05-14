@@ -12,6 +12,13 @@ const Login = () => {
   const [email, setEmail] = useState("")
   const [userMsg, setUserMsg] = useState("")
   const [isLoading, setIsLoading] = useState(false)
+  const [redirectToHome, setRedirectTohome] = useState(false)
+
+  useEffect(() => {
+    if (redirectToHome) {
+      router.push("/")
+    }
+  }, [router, redirectToHome])
 
   const handleKeyDownEnter = (e) => {
     if (e.key === "Enter") {
@@ -43,10 +50,8 @@ const Login = () => {
           })
 
           const loggedInResponse = await response.json()
-          // router.push("/")
-          // console.log({ loggedInResponse })
           if (loggedInResponse.done) {
-            router.push("/")
+            setRedirectTohome(loggedInResponse.done)
           } else {
             setIsLoading(false)
             setUserMsg("Something went wrong logging in")
