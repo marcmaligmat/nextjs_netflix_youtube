@@ -86,7 +86,6 @@ const Home = ({
           videos={popularVideos}
           size="small"
         />
-        <SectionCards title="Popular" videos={popularVideos} size="small" />
       </div>
     </div>
   )
